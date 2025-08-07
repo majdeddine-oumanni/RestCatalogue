@@ -3,12 +3,10 @@ package com.rest.restcatalogue.DTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthorDTO {
-    private String name;
-    private String biography;
-    private List<Long> booksIDs;
+public class BookDTO {
+    private String title;
+    private String isbn;
+    private Long authorId;
 }
