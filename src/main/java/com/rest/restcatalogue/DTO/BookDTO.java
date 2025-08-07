@@ -9,6 +9,8 @@ public class BookDTO {
     private String title;
     private String isbn;
     private Long authorId;
+    private String description;
+
 
     public String getTitle() {
         return title;
@@ -32,5 +34,13 @@ public class BookDTO {
 
     public void setAuthorId(Long authorId) {
         this.authorId = authorId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

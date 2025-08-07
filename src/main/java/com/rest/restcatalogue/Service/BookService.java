@@ -29,6 +29,7 @@ public class BookService {
                 orElseThrow(()-> new RuntimeException("book not found"));
         foundBook.setIsbn(dto.getIsbn());
         foundBook.setTitle(dto.getTitle());
+        foundBook.setDescription(dto.getDescription());
         Book book = respository.save(foundBook);
         return mapper.toDTO(book);
     }

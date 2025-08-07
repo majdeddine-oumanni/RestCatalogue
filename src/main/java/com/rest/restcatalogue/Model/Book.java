@@ -14,6 +14,7 @@ public class Book {
 
     private String title;
     private String isbn;
+    private String description;
 
     @ManyToOne
     private Author author;
@@ -48,5 +49,13 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
