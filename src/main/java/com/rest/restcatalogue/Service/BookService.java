@@ -6,6 +6,8 @@ import com.rest.restcatalogue.Model.Book;
 import com.rest.restcatalogue.Repository.BookRespository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
     private final BookRespository respository;
@@ -21,5 +23,28 @@ public class BookService {
         Book savedBook = respository.save(book);
         return mapper.toDTO(savedBook);
     }
-    
+
+    public BookDTO update(Long id, BookDTO dto){
+        Book foundBook = respository.findById(id).
+                orElseThrow(()-> new RuntimeException("book not found"));
+        foundBook.setIsbn(dto.getIsbn());
+        foundBook.setTitle(dto.getTitle());
+        Book book = respository.save(foundBook);
+        return mapper.toDTO(book);
+    }
+
+    public List<BookDTO> getAll(){
+        List<Book> books = respository.findAll();
+        return mapper.toDTOs(books);
+    }
+
+    public BookDTO getById(Long id){
+        Book foundBook = respository.findById(id).
+                orElseThrow(()-> new RuntimeException("book not found"));
+        return mapper.toDTO(foundBook);
+    }
+
+    public void delete(Long id){
+        respository.deleteById(id);
+    }
 }

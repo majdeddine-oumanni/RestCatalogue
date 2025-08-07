@@ -35,7 +35,8 @@ public class AuthorService {
 
         foundAuthor.setBiography(dto.getBiography());
         foundAuthor.setName(dto.getName());
-        return mapper.toDTO(foundAuthor);
+        Author author = repository.save(foundAuthor);
+        return mapper.toDTO(author);
     }
 
     public AuthorDTO getById(Long id){
